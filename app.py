@@ -1,5 +1,6 @@
 import re
 
+
 def f1(a, b=0):
     return a**2 + b
 
