@@ -2,7 +2,7 @@ import re
 
 
 def f1(a, b=0):
-    return a**2 + b
+    return a ** 2 + b
 
 
 def f2(param):
@@ -24,7 +24,7 @@ def f3(param):
 
 
 def f4(text1, text2=None):
-    text = text1 + " ma kota"
+    text = "%s ma kota" % text1
 
     if text2:
         text += " i " + text2
