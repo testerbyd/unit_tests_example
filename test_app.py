@@ -135,6 +135,38 @@ class TestApp(unittest.TestCase):
         w = app.f7("</taag>")
         self.assertEqual(w, "tag koncowy")
 
+    def test_f8_found(self):
+        w = app.f8("kot", "ala ma kota")
+        self.assertTrue(w)
+
+    def test_f8_not_found(self):
+        w = app.f8("pies", "ala ma kota")
+        self.assertFalse(w)
+
+    def test_f9_first(self):
+        w = app.f9(1, 2)
+        self.assertEqual(w, "dodatnie")
+
+    def test_f9_second(self):
+        w = app.f9(-1, -2)
+        self.assertEqual(w, "ujemne")
+
+    def test_f9_third(self):
+        w = app.f9(-1, 1)
+        self.assertEqual(w, "roznych znakow")
+
+    def test_f9_fourth(self):
+        w = app.f9(-1, 0)
+        self.assertEqual(w, "jest zero")
+
+    def test_f10_first(self):
+        w = app.f10(1, 1)
+        self.assertEqual(w, "rowne")
+
+    def test_f10_second(self):
+        w = app.f10(1, 2)
+        self.assertEqual(w, "rozne")
+
 
 if __name__ == '__main__':
     unittest.main()

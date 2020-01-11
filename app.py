@@ -1,3 +1,5 @@
+import re
+
 def f1(a, b=0):
     return a**2 + b
 
@@ -38,4 +40,50 @@ def f6(count, char):
 
 
 def f7(param):
-    pass
+    if isinstance(param, str):
+        exp = re.compile(r'\s')
+
+        if exp.search(param):
+            return "zdanie"
+
+        startTagExp = re.compile(r'<\w+>')
+
+        if startTagExp.search(param):
+            return "tag poczatkowy"
+
+        endTagExp = re.compile(r'</\w+>')
+
+        if endTagExp.search(param):
+            return "tag koncowy"
+
+        return "slowo"
+    else:
+        if param >= 0 and param <= 9:
+            return "cyfra"
+
+        if param < 0:
+            return "liczba_ze_znakiem"
+
+        return "liczba"
+
+
+def f8(pattern, search):
+    return pattern in search
+
+
+def f9(a, b):
+    if a > 0 and b > 0:
+        return "dodatnie"
+    elif a < 0 and b < 0:
+        return "ujemne"
+    elif a == 0 or b == 0:
+        return "jest zero"
+    else:
+        return "roznych znakow"
+
+
+def f10(a, b):
+    if a == b:
+        return "rowne"
+    else:
+        return "rozne"
